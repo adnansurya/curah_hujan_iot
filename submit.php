@@ -1,6 +1,7 @@
 <?php
     include 'db_access.php';
-
+    $date = new DateTime("now", new DateTimeZone('Asia/Makassar') );
+    $timestamp = $date->format('Y-m-d H:i:s');
     if(isset($_GET['waktu']) && isset($_GET['sen1']) && isset($_GET['sen2']) && isset($_GET['sen3']) && isset($_GET['sen4']) && isset($_GET['sen5'])){
 
         $waktu = $_GET['waktu'];
@@ -10,7 +11,7 @@
         $sen4 = $_GET['sen4'];
         $sen5 = $_GET['sen5'];
 
-        $sql = "INSERT INTO curahujan (sensor1,sensor2,sensor3,sensor4,sensor5,waktu, timestamp) VALUES ('$sen1','$sen2','$sen3','$sen4','$sen5','$waktu',current_timestamp())";
+        $sql = "INSERT INTO curahujan (sensor1,sensor2,sensor3,sensor4,sensor5,waktu, timestamp) VALUES ('$sen1','$sen2','$sen3','$sen4','$sen5','$waktu','$timestamp')";
         if (!mysqli_query($conn,$sql)){            
             echo 'Terjadi Kesalahan pada database curahujan';
         

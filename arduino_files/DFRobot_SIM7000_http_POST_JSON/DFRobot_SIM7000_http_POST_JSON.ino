@@ -107,6 +107,7 @@ void loop() {
      while (Serial.available() > 0) {
       data = Serial.readStringUntil('\n');
       data.trim();
+      Serial.println("DATA :" + data);    
       String jsonStr = jsonGenerator(data);
       Serial.println(jsonStr);
        Serial.print("POST to ");
